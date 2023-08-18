@@ -1,8 +1,10 @@
 {
-  "name": "rproto",
+  "name": "vscode-rproto",
+  "publisher": "roj",
   "displayName": "RProto",
   "description": "Syntax highlighting for RProto",
   "version": "0.0.1",
+  "repository": "https://github.com/roj1512/vscode-rproto.git",
   "engines": {
     "vscode": "^1.81.0"
   },
