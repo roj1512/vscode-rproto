@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "RProto",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#type_declaration"
+    },
+    {
+      "include": "#proc_declaration"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [{
+        "name": "keyword.control.rproto",
+        "match": "^\\s*(type|proc)\\b"
+      }]
+    },
+    "type_declaration": {
+      "patterns": [
+        {
+          "match": "([A-z][A-z0-9]*)\\s*\\{\\s*$",
+          "captures": {
+            "1": { "name": "support.type.rproto" }
+          }
+        },
+        {
+          "begin": "\\{",
+          "end": "\\}",
+          "match": "\\s*[A-z][A-z0-9]*\\s+(\\[?)([A-z][A-z0-9]*)(\\]?)(\\??)\\s*",
+          "captures": {
+            "2": { "name": "support.type.rproto" },
+            "4": { "name": "keyword.operator.rproto" }
+          }
+        }
+      ]
+    },
+    "proc_declaration": {
+      "patterns": [
+        {
+          "match": "([A-z][A-z0-9]*)\\s*\\(\\s*",
+          "captures": {
+            "1": {
+              "name": "meta.definition.function.rproto entity.name.function.rproto"
+            }
+          }
+        },
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "match": "\\s*[A-z][A-z0-9]*\\s+(\\[?)([A-z][A-z0-9]*)(\\]?)(\\??)(,?)\\s*",
+          "captures": {
+            "2": { "name": "support.type.rproto" },
+            "4": { "name": "keyword.operator.rproto" },
+            "5": { "name": "punctuation.separator.comma.rproto" }
+          }
+        },
+        {
+          "match": "\\)\\s*(\\[?)([A-z][A-z0-9]*)(\\]?)(\\??)\\s*$",
+          "captures": {
+            "2": { "name": "support.type.rproto" },
+            "4": { "name": "keyword.operator.rproto" }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.rproto"
+}

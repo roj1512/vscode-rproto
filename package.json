@@ -1,0 +1,25 @@
+{
+  "name": "rproto",
+  "displayName": "RProto",
+  "description": "Syntax highlighting for RProto",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "rproto",
+      "aliases": ["RProto", "rproto"],
+      "extensions": [".rproto"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "rproto",
+      "scopeName": "source.rproto",
+      "path": "./syntaxes/rproto.tmLanguage.json"
+    }]
+  }
+}
